@@ -1,4 +1,4 @@
-package Kevin_Stream;
+package JavaOfGod.version1.Kevin_Stream;
 
 public class HowMuchOfAvailableProcessors {
     public static void main(String[] args) {

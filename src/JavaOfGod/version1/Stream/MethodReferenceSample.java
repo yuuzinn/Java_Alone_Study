@@ -1,4 +1,4 @@
-package JavaOfGod.Stream;
+package JavaOfGod.version1.Stream;
 
 import java.util.stream.Stream;
 

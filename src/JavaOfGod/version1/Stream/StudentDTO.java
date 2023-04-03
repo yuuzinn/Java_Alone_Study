@@ -1,4 +1,4 @@
-package JavaOfGod.Stream;
+package JavaOfGod.version1.Stream;
 
 public class StudentDTO {
     String name;

@@ -1,9 +1,8 @@
-package Kevin_Stream;
+package JavaOfGod.version1.Kevin_Stream;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * 1. 멀티 프로세스 ?

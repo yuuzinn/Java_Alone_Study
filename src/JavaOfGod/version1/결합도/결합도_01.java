@@ -1,4 +1,4 @@
-package 결합도;
+package JavaOfGod.version1.결합도;
 
 public class 결합도_01 {
     String name;

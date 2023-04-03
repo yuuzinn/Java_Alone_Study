@@ -1,4 +1,4 @@
-package Kevin_Stream;
+package JavaOfGod.version1.Kevin_Stream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

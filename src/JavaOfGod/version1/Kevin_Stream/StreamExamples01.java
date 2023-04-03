@@ -1,4 +1,4 @@
-package Kevin_Stream;
+package JavaOfGod.version1.Kevin_Stream;
 
 import java.math.BigInteger;
 import java.util.stream.IntStream;

@@ -1,8 +1,7 @@
-package JavaOfGod.Stream;
+package JavaOfGod.version1.Stream;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class StreamMap {
     public static void main(String[] args) {
