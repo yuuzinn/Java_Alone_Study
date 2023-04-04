@@ -1,6 +1,7 @@
 package JavaOfGod.version2.ch23;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class SetSample {
@@ -33,7 +34,7 @@ public class SetSample {
         for (String car : cars) {
             carSet.add(car);
         }
-        printCarSet(carSet);
+        printCarSet2(carSet);
         return carSet.size();
     }
 
@@ -41,5 +42,12 @@ public class SetSample {
         for (String temp : carSet) {
             System.out.println(temp + " ");
         }
+    }
+    public void printCarSet2(Set<String> carSet) {
+        Iterator<String> iterator = carSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
+        System.out.println();
     }
 }
