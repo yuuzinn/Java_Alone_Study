@@ -1,5 +1,9 @@
 package java_deep.code;
 
+import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
+
 public class EqualsAndHashCode {
 
   public static void main(String[] args) {
@@ -7,7 +11,8 @@ public class EqualsAndHashCode {
     String b = "a";
     System.out.println(a.equals(b));
     System.out.println(a == b);
-
+    ConcurrentSkipListMap<String, Integer> map = new ConcurrentSkipListMap<>();
+    ConcurrentHashMap<String, String> ma1 = new ConcurrentHashMap<>();
     String a2 = new String("a");
     String b2 = new String("b");
     System.out.println(a2.equals(b2));
