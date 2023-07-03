@@ -60,4 +60,5 @@ DispatcherServlet에게 넘긴다.
 9. DispatcherServlet은 **ViewResolver에게 받은 뷰에 대한 정보를 넘긴다.**
 10. ViewResolver는 해당 JSP를 찾아서(응답할 View) DispatcherServlet에게 알려준다.
 11. DispatcherServlet은 응답할 View에게 Render를 지시하고, View는 응답 로직을 처리한다.
+ 11-1. 그리고 Client에 보내기 전, Filter, Interceptor 등 다시 거쳐서 보내주게 됨.
 12. 결과적으로 DispatcherServlet이 Client에게 렌더링된 View를 응답하게 된다.
