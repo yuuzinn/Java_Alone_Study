@@ -158,3 +158,71 @@ while문을 통해 hasNext() 메서드를 이용해서 Map의 모든 요소들�
 주의할 점은 Map는 순서를 보장하지 않으며 요소에 대한 반복 순서가 보장되지 않는다는 것이다.
 
 따라서 순서가 중요한 경우 LinkedHashMap을 이용하거나, 정렬로 접근해야 하는 경우엔 TreeMap이 적합하다고 말할 수 있다.
+
+
+### hashCode는 왜 equals와 같이 재정의 해야하는가? (Hash를 사용하는 라이브러리 중..(HashMap))
+
+```java
+public V put(K key, V value) {
+    return putVal(hash(key), key, value, false, true);
+    }
+```
+HashMap 중 put 메서드를 확인해보면 된다. putVal 메서드를 타고 들어가게 되면 아래와 같은 메서드의 내용이 있다.
+```java
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node<K,V> e; K k;
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }
+```
+여기서 확인해야할 포인트는 아래와 같다.
+```java
+if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+```
+
+**참조 p의 hash와 매개변수 hash가 같아야 하고** key값이 같거나 **equals 메서드를 통해 같은지**?
+
+그래서 조건식이 true일 경우 아래의 로직이 실행된다는 것이다. 그래서 hashCode와 equals를 재정의 해야만 
+구현되어 있는 putVal 메서드의 조건이 올바르게 실행되기 때문에 재정의해야만 한다.
+
+물론 HashMap 말고도 equals와 hashCode는 일반적으로 재정의한다. 보통은 자주같이 사용되니까 같이만드는게 통상적이다.
+
