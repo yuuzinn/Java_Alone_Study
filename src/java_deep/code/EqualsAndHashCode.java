@@ -1,6 +1,7 @@
 package java_deep.code;
 
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 
@@ -11,6 +12,10 @@ public class EqualsAndHashCode {
     String b = "a";
     System.out.println(a.equals(b));
     System.out.println(a == b);
+    String property = System.getProperty("java.version");
+    Map<String, String> getenv = System.getenv();
+    System.out.println("javaHome = " + getenv);
+    System.out.println("property = " + property);
     ConcurrentSkipListMap<String, Integer> map = new ConcurrentSkipListMap<>();
     ConcurrentHashMap<String, String> ma1 = new ConcurrentHashMap<>();
     String a2 = new String("a");
