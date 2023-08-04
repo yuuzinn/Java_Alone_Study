@@ -1,10 +1,15 @@
 package javaOfGod.version2.ch20;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class JavaLangNumber {
     public static void main(String[] args) {
         JavaLangNumber sample = new JavaLangNumber();
         sample.numberTypeCheck();
         sample.numberTypeCheck2();
+        Map<String, String> map = new HashMap<>();
+//        map.equals()
     }
 
     public void numberTypeCheck2() {

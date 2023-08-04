@@ -13,6 +13,8 @@ public class GenericSample {
 
         CastingDTO dto2 = new CastingDTO();
         dto2.setObject(new StringBuffer());
+        Object object = dto2.getObject();
+        System.out.println(object);
 
         CastingDTO dto3 = new CastingDTO();
         dto3.setObject(new StringBuilder());
