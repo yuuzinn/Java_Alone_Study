@@ -11,6 +11,11 @@ public class Profile {
     profile.printName(profile);
     profile.printAge(profile);
   }
+
+  public String getName() {
+    return name;
+  }
+
   public void setName(String str) {
     this.name = str;
   }
