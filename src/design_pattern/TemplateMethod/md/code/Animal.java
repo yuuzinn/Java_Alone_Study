@@ -1,4 +1,4 @@
-package java_method_parttern.TemplateMethod.md.code;
+package design_pattern.TemplateMethod.md.code;
 
 public abstract class Animal {
     public void playWithOwner() {

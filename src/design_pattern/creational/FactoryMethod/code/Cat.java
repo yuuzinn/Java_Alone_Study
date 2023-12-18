@@ -1,4 +1,4 @@
-package java_method_parttern.FactoryMethod.code;
+package design_pattern.creational.FactoryMethod.code;
 
 public class Cat extends Animal{
     @Override
